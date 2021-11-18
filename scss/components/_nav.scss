@@ -1,0 +1,50 @@
+.nav {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__link {
+  display: block;
+  &::after {
+    @extend %pseudo;
+    top: 30px;
+    left: -4px;
+    background-color: transparent;
+    width: calc(100% + 8px);
+    height: 2px;
+  }
+}
+
+.nav li {
+  position: relative;
+  @extend %base-font-line;
+
+  &:hover .nav__link::after,
+  &:focus .nav__link::after,
+  &:active .nav__link::after {
+    transition: all 0.5s;
+    background-color: $accent-color;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    width: 328px;
+
+    &__link {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    &__link::after {
+      top: 34px;
+    }
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .nav {
+    width: 410px;
+  }
+}
